@@ -48,6 +48,9 @@ class Setting extends Component {
               this.props.navigation.goBack()
               
               }}>
+                  <Image
+                style={{width:30,height:30}}
+                source={require('../../../images/Login/back.png')}></Image>
              {/* <AntDesign name='arrowleft' size={35} color='white'></AntDesign> */}
           </TouchableOpacity>
           <Text style={styles.contentText}>账单</Text>

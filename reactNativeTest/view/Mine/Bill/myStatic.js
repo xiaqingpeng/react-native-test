@@ -45,6 +45,9 @@ class Setting extends Component {
         <View style={styles.style}>
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
            {/* <AntDesign name='arrowleft' size={35} color='white'></AntDesign> */}
+           <Image
+                style={{width:30,height:30}}
+                source={require('../../../images/Login/back.png')}></Image>
           </TouchableOpacity>
           <Text style={styles.contentText}>统计</Text>
           <Text style={styles.rightText}></Text>

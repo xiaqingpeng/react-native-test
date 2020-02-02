@@ -4,19 +4,34 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Image,
   TextInput,
+  AlertIOS,
   Alert,
+  AsyncStorage,
 } from 'react-native';
-import {Container, Content, Button} from 'native-base';
-
+import {Container, Header, Item, Content, Button} from 'native-base';
+// import AsyncStorage from '@react-native-community/async-storage';
 import asyncStorage from '../../common/asyncStorage'
 import {Avatar, Divider} from 'react-native-elements';
-import React, { Fragment} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {setLogin} from '../../redux/action/create-action';
-//import AntDesign from 'react-native-vector-icons/AntDesign';
 const screenWidth = Dimensions.get('window').width;
-
+const dataSource = [
+  {
+    icon: require('../../images/Login/webo.png'),
+    name: '微博',
+  },
+  {
+    icon: require('../../images/Login/wechat.png'),
+    name: '微信',
+  },
+  {
+    icon: require('../../images/Login/github.png'),
+    name: 'Github',
+  },
+];
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +40,25 @@ class Login extends React.Component {
       password: '',
     };
   }
+  componentDidMount() {}
+
+  handleOtherLogin = () => {
+    return dataSource.map((item, index) => {
+      return (
+        <View key={index} style={styles.wayContent}>
+          {index === dataSource.length - 1 ? (
+            <Image
+              source={item.icon}
+              style={{width: 48, height: 48, marginBottom: 30}}></Image>
+          ) : (
+            <Image source={item.icon} style={styles.wayImage}></Image>
+          )}
+
+          <Text style={styles.wayText}>{item.name}</Text>
+        </View>
+      );
+    });
+  };
   render() {
     const {username, password} = this.state;
     return (
@@ -36,7 +70,9 @@ class Login extends React.Component {
               onPress={() => {
                 this.props.navigation.goBack();
               }}>
-              {/* <AntDesign name='arrowleft' style={{marginLeft:18}}size={35} color={'white'}></AntDesign> */}
+              <Image
+                style={styles.backImage}
+                source={require('../../images/Login/back.png')}></Image>
             </TouchableOpacity>
 
             <View style={styles.headerTitle}>
@@ -103,6 +139,18 @@ class Login extends React.Component {
                 <Text style={styles.login_keyword}>登录</Text>
               </Button>
 
+              <Button
+                primary
+                style={styles.ViewText}
+                onPress={async() => {
+        
+                const  role  = await asyncStorage.getData('role')
+                console.log(role)  
+               
+                
+                }}>
+                <Text style={styles.login_keyword}>AsyncStorage</Text>
+              </Button>
               <View style={styles.reLogin}>
                 <Text style={styles.reLoginText}> 忘记密码?</Text>
                 <Text style={styles.reLoginText}> 注册账号</Text>
@@ -116,13 +164,7 @@ class Login extends React.Component {
                   <Divider style={styles.divider} />
                 </View>
               </View>
-              <View style={styles.otherWay}>
-                
-                {/* <AntDesign name='wechat' size={50} color={'white'}></AntDesign>
-                <AntDesign name='weibo' size={50} color={'white'}></AntDesign>
-                <AntDesign name='github' size={45} color={'white'}></AntDesign> */}
-      
-                </View>
+              <View style={styles.otherWay}>{this.handleOtherLogin()}</View>
             </View>
           </Content>
         </Container>
@@ -166,6 +208,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     borderRadius: 8,
+  },
+  backImage: {
+    width: 30,
+    height: 30,
+    marginLeft: (screenWidth * 0.1) / 2,
   },
   login_view: {
     width: screenWidth * 0.9,
@@ -212,7 +259,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  }
+  },
+  wayContent: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  wayImage: {
+    width: 58,
+    height: 58,
+    marginBottom: 20,
+  },
+  wayText: {
+    color: 'white',
+  },
 });
 const mapStateToProps = state => {
   console.log(state);
