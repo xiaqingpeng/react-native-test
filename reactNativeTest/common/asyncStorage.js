@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage';
 class asyncStorage {
-  static saveData = (key, data) => {
+  static saveData(key, data){
     return new Promise((resolve, reject) => {
       AsyncStorage.setItem(key, data, error => {
         if (!error) {
@@ -12,7 +12,7 @@ class asyncStorage {
     });
   };
 
-  static getData = async key => {
+  static getData (key){
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(key, (error, result) => {
         if (!error) {
@@ -24,7 +24,7 @@ class asyncStorage {
       });
     });
   };
-  static removeData = async key => {
+  static removeData (key) {
     return new Promise((resolve, reject) => {
       AsyncStorage.removeItem(key, error => {
         if (!error) {

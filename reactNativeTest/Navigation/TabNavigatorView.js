@@ -153,6 +153,7 @@ import React, {Component} from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
+import { Badge } from 'react-native-elements';
 
 import HomeScreen from '../view/Home/navigation';
 import ActiveScreen from '../view/Active/navigation';
@@ -264,10 +265,15 @@ const TabNavigator = createBottomTabNavigator(
         tabBarIcon: ({focused, horizontal, tintColor}) => {
           if (focused) {
             return (
+              <>
+              <Badge status='error' value="4" 
+               containerStyle={{ position: 'absolute', top: 2, right: 12}}
+              />
               <Image
               style={{width:32,height:32}}
                 source={carSelected}
               />
+              </>
             );
           } else {
             return (

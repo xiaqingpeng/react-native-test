@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Navigation from './Navigation/Navigation.js';
+import Navigation from './view/InitPage';
 import Login from './view/Login/login.js'
 import DrawerNavigator from './Navigation/DrawerNavigator';
  const AppInitNavigator = createAppContainer(createStackNavigator({

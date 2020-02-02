@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {Container, Header, Item, Content, Button} from 'native-base';
 // import AsyncStorage from '@react-native-community/async-storage';
-import asyncStorage from '../../common/asyncStorage'
+import asyncStorage  from '../../common/asyncStorage'
 import {Avatar, Divider} from 'react-native-elements';
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
@@ -138,19 +138,9 @@ class Login extends React.Component {
                 }}>
                 <Text style={styles.login_keyword}>登录</Text>
               </Button>
+             
 
-              <Button
-                primary
-                style={styles.ViewText}
-                onPress={async() => {
-        
-                const  role  = await asyncStorage.getData('role')
-                console.log(role)  
-               
-                
-                }}>
-                <Text style={styles.login_keyword}>AsyncStorage</Text>
-              </Button>
+             
               <View style={styles.reLogin}>
                 <Text style={styles.reLoginText}> 忘记密码?</Text>
                 <Text style={styles.reLoginText}> 注册账号</Text>
