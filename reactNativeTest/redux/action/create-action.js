@@ -23,7 +23,7 @@ export const setLogin = (data, callback) => {
         data: res,
       });
       callback(res);
-    }, 20);
+    }, 1000);
   
   };
  

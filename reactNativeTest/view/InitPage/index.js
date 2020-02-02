@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, SafeAreaView, ActivityIndicator} from 'react-native';
+import {StyleSheet, SafeAreaView} from 'react-native';
 import {View, Text} from 'native-base';
 import {Container, Header} from 'native-base';
 import {Col, Row, Grid} from 'react-native-easy-grid';
@@ -31,7 +31,7 @@ class Navigation extends Component {
         <Row style={styles.grid_top}>
             <Grid>
                 <Row style={styles.grid_header_top}>
-                 <ActivityIndicator size="large" color="white" />
+               
                 </Row>
                 <Row style={styles.grid_header_bottom}>
                     <Text style={{fontSize:30,color:'white',fontWeight:'800',margin:20}}>

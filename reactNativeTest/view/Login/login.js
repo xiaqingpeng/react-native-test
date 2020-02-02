@@ -10,9 +10,9 @@ import {
   Alert,
   AsyncStorage,
 } from 'react-native';
-import {Container, Header, Item, Content, Button} from 'native-base';
+import {Container, Header, Item, Content, Button, Spinner} from 'native-base';
 // import AsyncStorage from '@react-native-community/async-storage';
-import asyncStorage  from '../../common/asyncStorage'
+import asyncStorage from '../../common/asyncStorage';
 import {Avatar, Divider} from 'react-native-elements';
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
@@ -38,6 +38,7 @@ class Login extends React.Component {
     this.state = {
       username: '',
       password: '',
+      spinner: false,
     };
   }
   componentDidMount() {}
@@ -60,7 +61,7 @@ class Login extends React.Component {
     });
   };
   render() {
-    const {username, password} = this.state;
+    const {username, password, spinner} = this.state;
     return (
       <Fragment>
         <View style={styles.blank}></View>
@@ -116,9 +117,17 @@ class Login extends React.Component {
               <Button
                 primary
                 style={styles.ViewText}
-                onPress={() => {
+                onPress={async() => {
                   if (!username) {
                     Alert.alert('请输入用户名');
+                    return;
+                  }
+                  if (username!=='xia') {
+                    Alert.alert('用户名不正确');
+                    return;
+                  }
+                  if (password!=='123') {
+                    Alert.alert('密码不正确');
                     return;
                   }
 
@@ -126,21 +135,30 @@ class Login extends React.Component {
                     Alert.alert('请输入密码');
                     return;
                   }
-
+               
                   console.log(this.state);
+
+                 await this.setState({
+                    spinner:true
+                 })
                   this.props.setLogin(this.state, res => {
                     console.log(res);
                     console.log(this.props);
                     if (res.user_id) {
-                      this.props.navigation.push('DrawerNavigator');
+                       this.setState({
+                        spinner:false
+                       },()=>{
+                          this.props.navigation.push('DrawerNavigator');
+                       })
+                     
                     }
                   });
                 }}>
                 <Text style={styles.login_keyword}>登录</Text>
               </Button>
-             
 
-             
+              {spinner && <Spinner color="white" />}
+
               <View style={styles.reLogin}>
                 <Text style={styles.reLoginText}> 忘记密码?</Text>
                 <Text style={styles.reLoginText}> 注册账号</Text>
@@ -268,9 +286,8 @@ const mapStateToProps = state => {
   if (state.handleReducer.userInfo.role) {
     console.log(state.handleReducer.userInfo.role);
     const role = state.handleReducer.userInfo.role;
-    console.log(asyncStorage)
-    asyncStorage.saveData('role',role)
-   
+    console.log(asyncStorage);
+    asyncStorage.saveData('role', role);
   }
 
   return {};
