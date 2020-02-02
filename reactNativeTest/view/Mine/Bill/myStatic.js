@@ -1,8 +1,37 @@
 import React, {Component, Fragment} from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {Header} from 'react-native-elements';
 
-//import AntDesign from 'react-native-vector-icons/AntDesign';
 
+class Static extends Component {
+  render() {
+    return (
+      <View >
+        <Header
+          containerStyle={{
+            backgroundColor:'rgb(3,127,254)',
+          }}
+          leftComponent={
+            <TouchableOpacity onPress={() => {
+              console.log(this.props.navigation)
+              this.props.navigation.goBack()
+              
+              }}>
+                  <Image
+                style={{width:30,height:30}}
+                source={require('../../../images/Login/back.png')}></Image>
+            
+          </TouchableOpacity>
+          }
+          centerComponent={
+            <Text style={styles.contentText}>统计</Text>
+          }
+          rightComponent={null}
+        />
+      </View>
+    );
+  }
+}
 const styles = StyleSheet.create({
   blank: {
     height: 30,
@@ -35,28 +64,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-class Setting extends Component {
-  render() {
-   
-    return (
-      <View style={{backgroundColor: '#f7f6fc'}}>
-        <View style={styles.blank}></View>
-        <View style={styles.style}>
-          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-           {/* <AntDesign name='arrowleft' size={35} color='white'></AntDesign> */}
-           <Image
-                style={{width:30,height:30}}
-                source={require('../../../images/Login/back.png')}></Image>
-          </TouchableOpacity>
-          <Text style={styles.contentText}>统计</Text>
-          <Text style={styles.rightText}></Text>
-        </View>
-
-       
-      </View>
-    );
-  }
-}
-
-export default Setting;
+export default Static;

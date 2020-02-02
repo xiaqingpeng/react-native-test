@@ -1,12 +1,9 @@
 import React from 'react';
 import {
-  View,
-  Text,
-  TouchableOpacity,
   Dimensions,
   StyleSheet,
 } from 'react-native';
-import {Avatar, ListItem} from 'react-native-elements';
+
 import ScrollableTabView, {
   DefaultTabBar,
   ScrollableTabBar,
@@ -23,12 +20,13 @@ class CarScreen extends React.Component {
     return (
     
         <ScrollableTabView
-          renderTabBar={() => <ScrollableTabBar />}
-          // tabBarUnderlineStyle={fa}
+          renderTabBar={() => < DefaultTabBar />}
+           tabBarUnderlineStyle={{height:0}}
           scrollWithoutAnimation={true}
           tabBarBackgroundColor="rgb(0,115,227)"
           tabBarActiveTextColor="white"
           tabBarInactiveTextColor="#cccccc"
+          locked={true}
           tabBarPosition='bottom'
           tabBarTextStyle={{
             fontWeight: 'bold',
