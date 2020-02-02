@@ -3,14 +3,21 @@ import {StyleSheet, SafeAreaView} from 'react-native';
 import {View, Text} from 'native-base';
 import {Container, Header} from 'native-base';
 import {Col, Row, Grid} from 'react-native-easy-grid';
+import asyncStorage  from '../../common/asyncStorage'
 
 class Navigation extends Component {
     componentDidMount () {
       this.timer()
     }
-    timer(){
-       setTimeout(() => {
-           this.props.navigation.push('DrawerNavigator')
+    timer (){
+       setTimeout(async() => {
+        let role = await asyncStorage.getData('role');
+        if (role === '2') {
+          this.props.navigation.navigate('DrawerNavigator');
+        } else {
+          this.props.navigation.navigate('Login');
+        }
+           
        }, 3000);
     }
     componentWillUnmount(){

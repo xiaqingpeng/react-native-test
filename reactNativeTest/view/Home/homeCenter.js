@@ -12,6 +12,7 @@ import {
 import {NavigationEvents} from 'react-navigation';
 import {ListItem} from 'react-native-elements';
 import dataSource from './dataSource';
+import Swiper from './Swiper'
 class ScollCenter extends Component {
   constructor(props) {
     super(props);
@@ -103,6 +104,7 @@ class ScollCenter extends Component {
                 }
               }
             }}>
+            <Swiper></Swiper>
             <View style={styles.mine_center}>{this.handleMineCenter()}</View>
           </ScrollView>
         
