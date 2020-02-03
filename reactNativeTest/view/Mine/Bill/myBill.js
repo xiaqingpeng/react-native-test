@@ -1,11 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
-
+import { WebView } from 'react-native-webview';
 
 class Setting extends Component {
   render() {
     return (
+      <Fragment>
       <View >
         <Header
           containerStyle={{
@@ -24,11 +25,14 @@ class Setting extends Component {
           </TouchableOpacity>
           }
           centerComponent={
-            <Text style={styles.contentText}>账单</Text>
+            <Text style={styles.contentText}>百度</Text>
           }
           rightComponent={null}
         />
+       
       </View>
+       <WebView source={{uri:'https://www.baidu.cn/'}} />
+       </Fragment>
     );
   }
 }

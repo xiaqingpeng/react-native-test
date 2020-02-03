@@ -8,11 +8,14 @@ import {
   ScrollView,
   Animated,
   TouchableOpacity,
+  Dimensions
 } from 'react-native';
 import {NavigationEvents} from 'react-navigation';
 import {ListItem} from 'react-native-elements';
 import dataSource from './dataSource';
 import Swiper from './Swiper'
+import Video  from '../Video'
+const screenWidth = Dimensions.get('window').width;
 class ScollCenter extends Component {
   constructor(props) {
     super(props);
@@ -105,6 +108,10 @@ class ScollCenter extends Component {
               }
             }}>
             <Swiper></Swiper>
+            <View style={{padding:20}}>
+               <Video styles={{width:"100%",height:200}}  uri={'http://vfx.mtime.cn/Video/2019/03/21/mp4/190321153853126488.mp4'}></Video>
+            </View>
+          
             <View style={styles.mine_center}>{this.handleMineCenter()}</View>
           </ScrollView>
         

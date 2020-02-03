@@ -10,6 +10,7 @@ import ScrollableTabView, {
 } from 'react-native-scrollable-tab-view';
 import MyBill from './myBill'
 import MyStatic from './myStatic'
+import EchartsList from './echartsList'
 const ScreenWidth = Dimensions.get('window').width;
 class CarScreen extends React.Component {
   handleChangeTable = index => {
@@ -33,12 +34,15 @@ class CarScreen extends React.Component {
             fontSize: 16,
           }}
           onChangeTab={this.handleChangeTable}>
-          <MyBill {...this.props} tabLabel='账单'>
+          <MyBill {...this.props} tabLabel='百度'>
            
           </MyBill>
-          <MyStatic  {...this.props} tabLabel='统计'>
-            统计
+          <MyStatic  {...this.props} tabLabel='天猫'>
+            天猫
           </MyStatic>
+          <EchartsList {...this.props} tabLabel='图表'>
+
+          </EchartsList >
         </ScrollableTabView>
      
     );

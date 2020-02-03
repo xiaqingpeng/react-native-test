@@ -237,7 +237,7 @@ const TabNavigator = createBottomTabNavigator(
     Detail: {
       screen: DetailScreen,
       navigationOptions: ({navigation}) => ({
-        tabBarLabel: '详情',
+        tabBarLabel: '疫情',
         tabBarIcon: ({focused, horizontal, tintColor}) => {
           if (focused) {
             return (

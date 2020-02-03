@@ -19,7 +19,7 @@ class SwiperList extends Component {
   handleSwiper = navigation => {
     return dataSource.map((item, index) => {
       return (
-          <View style={styles.view_content}>
+          <View style={styles.view_content} key={index}>
               <Image style={styles.swiper_images} source={item}></Image>
           </View>
          
@@ -69,7 +69,7 @@ class SwiperList extends Component {
           showsPagination={this.state.showsPagination}
           onIndexChanged={index => {
         
-             console.log(index)
+            // console.log(index)
           }}>
           {this.handleSwiper(navigation)}
         </Swiper>

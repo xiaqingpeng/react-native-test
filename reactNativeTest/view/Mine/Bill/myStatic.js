@@ -1,11 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {Text, View, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import {Header} from 'react-native-elements';
+import { WebView } from 'react-native-webview'
 
 
 class Static extends Component {
   render() {
     return (
+      <Fragment>
       <View >
         <Header
           containerStyle={{
@@ -29,6 +31,8 @@ class Static extends Component {
           rightComponent={null}
         />
       </View>
+      <WebView source={{uri:'https://www.tmall.com/'}} />
+     </Fragment>
     );
   }
 }
