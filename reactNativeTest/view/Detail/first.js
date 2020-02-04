@@ -62,7 +62,7 @@ const TopNavigator = createMaterialTopTabNavigator(
       style: {}, //设置整个tabbar样式(背景颜色等)
       tabStyle: {
         
-       // backgroundColor: 'rgb(3,127,254)', 
+        backgroundColor: 'rgb(3,127,254)', 
         backgroundColor: 'white', 
         height: 60}, //设置单个tabbar样式
     },
@@ -88,10 +88,10 @@ class Detail extends Component {
 }
 const styles = StyleSheet.create({
   blank: {
-    height: 60,
-    // backgroundColor: 'rgb(0,115,227)',
+    height:80,
+   // backgroundColor:'rgb(0,115,227)',
     backgroundColor: 'white',
-    marginTop:20,
+    paddingTop:20,
     justifyContent: 'center',
     alignItems:'center',
     borderBottomColor:'#ccc',
