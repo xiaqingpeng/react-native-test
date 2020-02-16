@@ -6,6 +6,8 @@ import Home from './home';
 import Search from './search';
 import Mark from './mark';
 import Next from './next';
+import LinkItem from './LinkItem'
+import Position from './position'
 import ShareArticle from '../Home/shareArticle'
 const NavigatorHome = createStackNavigator({
   Home: {
@@ -20,17 +22,15 @@ const NavigatorHome = createStackNavigator({
   },
   ShareArticle:{
     screen:ShareArticle
+  },
+  LinkItem:{
+    screen:LinkItem
+  },
+  Position:{
+    screen:Position
   }
 
-  // DrawerNavigator:{
-  //  screen:DrawerNavigator
-  // },
-  // Next: {
-  //   screen: Next,
-  // },
-  // Login: {
-  //   screen: Login,
-  // },
+  
 },{
   headerMode:'none',
   initialRouteName:'Home',

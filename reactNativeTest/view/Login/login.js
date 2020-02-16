@@ -41,7 +41,9 @@ class Login extends React.Component {
       spinner: false,
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props)
+  }
 
   handleOtherLogin = () => {
     return dataSource.map((item, index) => {

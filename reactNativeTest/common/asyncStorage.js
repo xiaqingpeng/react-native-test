@@ -16,7 +16,7 @@ class asyncStorage {
     return new Promise((resolve, reject) => {
       AsyncStorage.getItem(key, (error, result) => {
         if (!error) {
-          console.log(`${key}为${result}`)
+          // console.log(`${key}为${result}`)
           return resolve(result);
         } else {
           return reject(`asyncStorage错误信息${error}`);

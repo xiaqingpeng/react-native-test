@@ -14,6 +14,7 @@ export default class App extends Component {
           backgroundColor="white"
         />
         <ECharts
+        
           option={echartsData.option2}
           backgroundColor="white"
         />

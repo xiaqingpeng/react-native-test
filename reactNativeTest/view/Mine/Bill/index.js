@@ -34,15 +34,13 @@ class CarScreen extends React.Component {
             fontSize: 16,
           }}
           onChangeTab={this.handleChangeTable}>
-          <MyBill {...this.props} tabLabel='百度'>
-           
+          <MyBill {...this.props} tabLabel='账单'>
+            账单
           </MyBill>
-          <MyStatic  {...this.props} tabLabel='天猫'>
-            天猫
+          <MyStatic  {...this.props} tabLabel='统计'>
+            统计
           </MyStatic>
-          <EchartsList {...this.props} tabLabel='图表'>
-
-          </EchartsList >
+    
         </ScrollableTabView>
      
     );
